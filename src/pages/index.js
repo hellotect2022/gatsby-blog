@@ -23,8 +23,11 @@ const CATEGORY_LIST = {
 const IndexPage = ({
   location:{search},
   data: {
+    site: {
+      siteMetadata: { title, description, siteUrl },
+    },
     allMarkdownRemark: { edges },
-  },
+  }
 }) => {
   console.log("edges",edges);
   console.log("search",search);
@@ -59,7 +62,11 @@ const IndexPage = ({
       )
 
   return (
-    <Template>
+    <Template
+      title={title}
+      description={description}
+      url={siteUrl}
+    >
       <Introduction />
       <CategoryList selectedCategory={selectedCategory} categoryList={categoryList} />
       <PostList selectedCategory={selectedCategory} posts={edges}/>
@@ -79,6 +86,13 @@ export default IndexPage
 
 export const getPostList = graphql`
   query getPostList {
+    site {
+      siteMetadata {
+        title
+        description
+        siteUrl
+      }
+    },
     allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date, frontmatter___title] }
     ) {
@@ -94,7 +108,6 @@ export const getPostList = graphql`
             date(formatString: "YYYY.MM.DD.")
             categories
             thumbnail {
-              #publicURL
               childImageSharp {
                 gatsbyImageData(width: 768, height: 400)
               }
@@ -102,6 +115,6 @@ export const getPostList = graphql`
           }
         }
       }
-    }
+    },
   }
 `
