@@ -3,7 +3,7 @@ import React, { createRef, useEffect } from 'react'
 
 
 const src = 'https://utteranc.es/client.js'
-const repo = '[username]/[username].github.io' // 자신 계정의 레포지토리로 설정
+const repo = 'hellotect2022.github.io' // 자신 계정의 레포지토리로 설정
 
 
 const UtterancesWrapper = styled.div`
