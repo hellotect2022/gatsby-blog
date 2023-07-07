@@ -1,7 +1,7 @@
 import React,{useMemo} from "react"
 import { Link, graphql } from 'gatsby'
 import GlobalStyle from 'components/Common/GlobalStyle'
-import Introduction from 'components/Main/Introduction'
+import Introduction from 'components/Common/Introduction'
 import styled from "@emotion/styled"
 import Footer from "../components/Common/Footer"
 import CategoryList from "../components/Main/CategoryList"
@@ -70,7 +70,6 @@ const IndexPage = ({
       <Introduction />
       <CategoryList selectedCategory={selectedCategory} categoryList={categoryList} />
       <PostList selectedCategory={selectedCategory} posts={edges}/>
-      <Footer />
     </Template>
     // <div>
     //   <ul>

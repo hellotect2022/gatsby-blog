@@ -9,17 +9,34 @@ const Background = styled.div`
 `
 
 const Wrapper = styled.div`
+  border-style: solid;
+  line-width:2px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   width: 768px;
-  height: 400px;
+  height: 200px;
   margin: 0 auto;
 
   @media (max-width: 768px) {
     width: 100%;
-    height: 300px;
+    height: 200px;
+    padding: 0 20px;
+  }
+`
+const Bio =styled.div`
+  height: 200px;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding:0 20px;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    height: 200px;
     padding: 0 20px;
   }
 `
@@ -48,11 +65,10 @@ const Introduction = function () {
     <Background>
       <Wrapper>
         <ProfileImage />
-
-        <div>
+        <Bio>
           <SubTitle>Nice to Meet You,</SubTitle>
           <Title>I'm Junior Frontend Developer Hyun.</Title>
-        </div>
+        </Bio>
       </Wrapper>
     </Background>
   )

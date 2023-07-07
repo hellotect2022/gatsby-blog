@@ -7,6 +7,10 @@
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
+    "@fortawesome/fontawesome-svg-core": "^6.4.0",
+    "@fortawesome/free-solid-svg-icons": "^6.4.0",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "@fortawesome/react-native-fontawesome": "^0.3.0",
     "gatsby": "^5.11.0",
     "gatsby-plugin-canonical-urls": "^5.11.0",
     "gatsby-plugin-emotion": "^8.11.0",
@@ -24,7 +28,8 @@
     "gatsby-transformer-sharp": "^5.11.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-helmet": "^6.1.0"
+    "react-helmet": "^6.1.0",
+    "react-native-svg": "^13.9.0"
   },
   "devDependencies": {
     "prettier": "^2.8.8"

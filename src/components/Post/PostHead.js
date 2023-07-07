@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image'
+import PostHeadInfo from './PostHeadInfo'
 
 const PostHeadWrapper = styled.div`
   position: relative;
@@ -27,11 +28,15 @@ filter: brightness(0.25);
 `
 
 const PostHead= function ({
+  title,
+  date,
+  categories,
   thumbnail,
 }) {
   return (
     <PostHeadWrapper>
       <BackgroundImage image={thumbnail} alt="thumbnail" />
+      <PostHeadInfo title={title} date={date} categories={categories} />
     </PostHeadWrapper>
   )
 }

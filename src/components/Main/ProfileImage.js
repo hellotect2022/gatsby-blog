@@ -6,7 +6,8 @@ const PROFILE_IMAGE_LINK =
   'https://avatars.githubusercontent.com/u/109232140?v=4'
 
 const ProfileImageWrapper = styled.img`
-  width: 120px;
+  border-style: solid;
+  line-width:2px;
   height: 120px;
   margin-bottom: 30px;
   border-radius: 50%;
