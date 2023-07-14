@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from '@emotion/styled'
 import ProfileImage from 'components/Main/ProfileImage'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faBars} from '@fortawesome/free-solid-svg-icons'
 
 const Background = styled.div`
   width: 100%;
@@ -59,8 +61,27 @@ const Title = styled.div`
     font-size: 25px;
   }
 `
+const MenuIcon = styled.div`
+  display: grid;
+  place-items: center;
+  align-self:start;
+  width: 100px;
+  height: 100px;
+  font-size: 22px;
+  cursor: pointer;
+`
 
-const Introduction = function () {
+const Introduction = function ({
+  menuClick,
+}) {
+  const [beat,setBeat] = useState(false);
+  
+  const handleClick = () =>{
+    setBeat(!beat);
+    console.log('beat',beat);
+    menuClick(!beat);
+  }
+
   return (
     <Background>
       <Wrapper>
@@ -69,6 +90,9 @@ const Introduction = function () {
           <SubTitle>Nice to Meet You,</SubTitle>
           <Title>I'm Junior Frontend Developer Hyun.</Title>
         </Bio>
+        <MenuIcon>
+          <FontAwesomeIcon icon={faBars} beat={beat} size="2xl" style={{color: "#b5b5b5",}} onClick={handleClick}/>
+        </MenuIcon>
       </Wrapper>
     </Background>
   )

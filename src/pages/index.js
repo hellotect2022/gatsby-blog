@@ -1,4 +1,4 @@
-import React,{useMemo} from "react"
+import React,{useMemo, useState} from "react"
 import { Link, graphql } from 'gatsby'
 import GlobalStyle from 'components/Common/GlobalStyle'
 import Introduction from 'components/Common/Introduction'
@@ -38,28 +38,35 @@ const IndexPage = ({
       ? 'All'
       : parsed.category
 
-      const categoryList = useMemo(() =>
-          edges.reduce(
-            (list,
-              {
-                node: {
-                  frontmatter: { categories },
-                },
-              },
-            ) => {
-              categories.forEach(category => {
-                if (list[category] === undefined) list[category] = 1;
-                else list[category]++;
-              });
-    
-              list['All']++;
-    
-              return list;
+  const categoryList = useMemo(() =>
+      edges.reduce(
+        (list,
+          {
+            node: {
+              frontmatter: { categories },
             },
-            { All: 0 },
-          ),
-        [],
-      )
+          },
+        ) => {
+          categories.forEach(category => {
+            if (list[category] === undefined) list[category] = 1;
+            else list[category]++;
+          });
+
+          list['All']++;
+
+          return list;
+        },
+        { All: 0 },
+      ),
+    [],
+  );
+
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  const clickEvent = (data) => {
+    console.log(data);
+    setSidebarOpen(data);
+  };
 
   return (
     <Template
@@ -67,7 +74,15 @@ const IndexPage = ({
       description={description}
       url={siteUrl}
     >
-      <Introduction />
+      <Introduction menuClick={clickEvent}/>
+      {sidebarOpen && (
+        <div className="sidebar">
+          Sidebar
+        </div>
+      )}
+      {/* <div className={`sidebar ${false ? 'sidebar--shifted' : ''}`}>
+        Sidebar
+      </div> */}
       <CategoryList selectedCategory={selectedCategory} categoryList={categoryList} />
       <PostList selectedCategory={selectedCategory} posts={edges}/>
     </Template>
